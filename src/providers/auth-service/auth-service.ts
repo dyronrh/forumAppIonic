@@ -1,8 +1,10 @@
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 let api_url = "http://127.0.0.1:8000/rest/auth/";
+let base_url = "http://127.0.0.1:8000/forum/";
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -30,4 +32,24 @@ export class AuthServiceProvider {
     });
   }
 
+}
+
+@Injectable()
+export class PostForumService {
+  http: any;
+  base_url: String;
+
+  constructor(http: Http){
+    this.http = http;
+    this.base_url = 'http://127.0.0.1:8000/forum/';
+    console.log('loading topic forum items');
+  }
+requestTopic( credentials, type){
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+    headers.append('Content - Type', 'application/json');
+    this.http.post()
+  });
+}
+  
 }

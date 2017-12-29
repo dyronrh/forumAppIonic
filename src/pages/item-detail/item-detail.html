@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ItemDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar text-center color="primary" no-border-top>
+    <ion-title>Topic Detail </ion-title>
+    <ion-toolbar color="primary" no-border-top>
+      <ion-searchbar (ionInput)="getItems($event)">
+        <ion-icon name="search"></ion-icon>
+      </ion-searchbar>
+      <ion-buttons start>
+        <button ion-button icon-only>
+          <ion-icon name="contact"></ion-icon>
+          {{this.userData}}
+        </button>
+
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button block outline (click)="logout()">Logout</button>
+      </ion-buttons>      
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card id="topicdetail">
+    <h1>
+      {{item.topic_title}}
+    </h1>
+    <div>
+      <div id="dateTopic">Created at: {{item.topic_date}}</div>
+      <h2>{{item.topic_username}}</h2>
+      <h2>{{item.topic_description}}</h2>
+    </div>
+
+  </ion-card>
+  <div id="buttonreply" text-right>
+    <button ion-button (click)="goToNewReply(item)" icon-left>
+      <ion-icon name="ios-undo">
+      </ion-icon>  Reply 
+    </button>
+  </div>
+  <ion-list>
+
+    <ion-card id="card" *ngFor="let item1 of items">
+      <h1>{{item1.user_post}}</h1>
+      <p>
+        <a>{{item1.post_username}}</a>
+        <a>, </a>
+        <a>{{item1.post_date}}</a>
+      </p>
+      <div id="viewbtn">
+
+      </div>
+    </ion-card>
+  </ion-list>
+</ion-content>

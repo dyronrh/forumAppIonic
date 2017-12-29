@@ -1,7 +1,28 @@
-page-welcome {
-    #welcome_page{
-        background-color: blue;
-    }
-    
+  @font-face {
+  font-family: 'TypoGraphica_demo';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../assets/fonts/TypoGraphica_demo.otf');
 
+}
+page-welcome {
+
+
+
+    #welcome_page{
+        
+    }   
+        #logo{ 
+  height: 300px;
+  width: 300px;
+  align-items: center;  
+  background: transparent;
+  
+    }
+    h1{
+    font-family: TypoGraphica_demo !important;
+    font-size: 3em;
+    color: #043b9b;
+    
+    }
 }

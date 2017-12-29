@@ -1,11 +1,60 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<ion-header> 
+<ion-navbar color="primary" no-border-top>
+<ion-title text-center id="title">Forum </ion-title>
+  <ion-toolbar color="primary" no-border-top>
+    <ion-searchbar (ionInput)="getItems($event)">
+  <ion-icon name="search"></ion-icon>
+</ion-searchbar>
+    <ion-buttons start>
+
+      <button ion-button icon-only >
+        <ion-icon name="contact"></ion-icon>
+        {{this.userData}}
+      </button>
+      <ion-fab-list side="top">
+
+      </ion-fab-list>
+      <button ion-button block outline (click)="logout()">Logout</button>
+      <button ion-button >
+
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+     
+    </ion-buttons>
+
+   
+  </ion-toolbar>
+</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
 
-<button ion-button block (click)="logout()">Logout</button>
+<ion-content color='primary'>
+        
+  <div text-center>
+    <h2>Topics List</h2>
+  </div>
+    <div text-right>
+      <button ion-button (click)="goToNewTopicPage()" icon-left>
+        <ion-icon name="md-add-circle">
+             </ion-icon>     New Topic
+      </button>
+    </div>
+  <ion-list>
+    <ion-card id="card" *ngFor="let item of items">
+      <h1>{{item.topic_title}}</h1>   
+     
+   
+      <p>
+        <a>{{item.topic_username}}</a>
+        <a>, </a>
+        <a>{{item.topic_date}}</a>
+      </p>
+      <div id="viewbtn">
+        <button ion-button aling="right" (click)="viewItemDetail(item)">View</button>
+      </div>
+    </ion-card>
+  </ion-list>
+
+ 
 </ion-content>

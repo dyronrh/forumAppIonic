@@ -6,17 +6,26 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>welcome</ion-title>
-  </ion-navbar>
+  <ion-navbar color="primary" no-border-top>
 
+    <ion-toolbar color="primary" no-border-top>
+ 
+  <ion-title text-center id="title">Question Forum </ion-title>
+
+    </ion-toolbar>
+  </ion-navbar>
 </ion-header>
 
 
-<ion-content padding id="welcome_page">
+<ion-content  text-center padding id="welcome_page">
   
-  <h1>Welcome to my app</h1>
-  <div class="text-center">this is a home page</div>
+  <h1>Welcome to Question Forum App</h1>
+  <div class="text-center"></div>
+  <div text-center>
+    <ion-img id="logo" class="img-responsive" src="assets/imgs/forumlogo.png"></ion-img>
+    <a>
+    </a>
+  </div>
 <button ion-button block (click)="login()">Login</button>
 <button ion-button block (click)="signup()">Signup</button>
 </ion-content>

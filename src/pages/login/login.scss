@@ -1,3 +1,27 @@
 page-login {
+    #credentials-content{
+        padding: 25px;
+        width: 80%;
+        margin-left: 10%;
+       
+        margin-right: 10%;
+        border:2px #488aff;
+        border-style: solid;
+        border-radius: 10px;
+        #header{
+            background-color: #488aff;
+            color: white;     
+           }
+    }
+
+    #logo{
+ 
+  height: 300px;
+  width: 300px;
+  align-items: center;
+  
+        background: transparent;
+  
+    }
 
 }

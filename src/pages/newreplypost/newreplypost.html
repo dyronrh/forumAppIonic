@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NewreplypostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" no-border-top>
+    <ion-toolbar color="primary" no-border-top>
+      <ion-buttons start>
+        <button ion-button icon-only>
+          <ion-icon name="contact"></ion-icon>
+          {{this.postTopicReply.post_username}}
+        </button>
+        <button ion-button icon-only>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button block outline (click)="logout()">Logout</button>
+      </ion-buttons>
+
+      <ion-title>Add a new Topic Reply </ion-title>
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <div id="new-reply">
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="Enter you Reply" [(ngModel)]="postTopicReply.user_post" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime type="date" placeholder="Replay day" displayFormat="YYYY-MM-DD" [(ngModel)]="postTopicReply.post_date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number" [(ngModel)]="postTopicReply.owner">{{postTopicReply.owner}}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="postTopicReply.topic">{{postTopicReply.topic}}</ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Replay by" [(ngModel)]="postTopicReply.post_username">{{postTopicReply.post_username}}</ion-input>
+      </ion-item>
+  </ion-list>
+  <button ion-button block (click)="postNewTopicReply()">Reply</button>
+
+</div>
+</ion-content>

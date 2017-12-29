@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
 import { HomePage} from '../home/home';
-
-import { AuthServiceProvider } from '../../providers/auth-service/auth-service'
+import { WelcomePage} from '../welcome/welcome';
+import { Storage } from '@ionic/storage';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Http, Headers } from '@angular/http';
 
 /**
@@ -18,29 +19,47 @@ import { Http, Headers } from '@angular/http';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  loading: any;
   responseData: any;
   userData = {"username": "","password": ""};
 
 
-  constructor(public navCtrl: NavController, public authservice: AuthServiceProvider) {
+  constructor(public navCtrl: NavController, public authservice: AuthServiceProvider, private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+
+  showLoader() {
+
+    this.loading = this.loadingCtrl.create({
+      content: "Authenticating..."
+    });
+
+    this.loading.present();
+
+  }
   login(){
+    this.showLoader();
     this.authservice.postData(this.userData, "login/").then((result) => {
       this.responseData = result;
-      console.log(this.responseData);
-      localStorage.setItem('userData', JSON.stringify(this.responseData));
+      console.log(this.responseData.key);
+  
+      localStorage.setItem('token', JSON.stringify(this.responseData.key));
+      this.loading.dismiss();
       this.navCtrl.push(HomePage);
 
     }, (err) => {
+      this.loading.dismiss();
       // error message
+      
 
     });
   }
-
+  goBack(){
+    this.navCtrl.push(WelcomePage);
+  }
 
 }
